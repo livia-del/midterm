@@ -1,0 +1,94 @@
+.table-wrapper {
+    max-height: 380px;
+    overflow-y: auto;
+    border-radius: 8px; /* 增加圓角 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 增加柔和陰影 */
+    border: 1px solid #d1d1d1;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 900px; /* 限制寬度讓排版更集中 */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+th, td {
+    border: 1px solid var(--table-border);
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    position: sticky;
+    top: -1px; /* 解決白線問題 */
+    background: linear-gradient(180deg, #e5b367 0%, #d4a256 100%);
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1em;
+    z-index: 10;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* 表格內容靠左對齊 */
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+    text-align: center; /* 文字置中 */
+}
+
+/* 斑馬紋：讓長表格更好閱讀 */
+.price-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* 滑鼠經過整行變色 */
+.price-table tbody tr:hover {
+    background-color: #fff9f0;
+    transition: 0.3s;
+}
+
+/* --- 3. 你指定的「復古滑輪」樣式 (保留箭頭) --- */
+
+/* 捲軸軌道背景 */
+.table-wrapper::-webkit-scrollbar {
+    width: 18px; /* 寬度維持較粗好點擊 */
+    background-color: #ffffff;
+}
+
+/* 中間滑塊 (橢圓灰色條) */
+.table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 10px;
+    border: 4px solid #ffffff; /* 產生留白縮小的效果 */
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555555;
+}
+
+/* 上下按鈕 (箭頭) */
+.table-wrapper::-webkit-scrollbar-button:single-button {
+    background-color: #ffffff;
+    display: block;
+    height: 20px;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* 上箭頭圖示 (SVG 繪製) */
+.table-wrapper::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-position: center 8px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23888888'><polygon points='50,0 0,100 100,100'/></svg>");
+}
+
+/* 下箭頭圖示 (SVG 繪製) */
+.table-wrapper::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-position: center 4px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23888888'><polygon points='0,0 100,0 50,100'/></svg>");
+}

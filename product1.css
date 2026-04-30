@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap');
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --primary-gold: #c5a059;
     --dark-bg: #1a1a1a;
@@ -176,6 +179,7 @@ footer {
     font-size: 0.9rem; 
 }
 /**/
+/*1*/
 /*上端照片*/
 .h {  
     width: 100%;
@@ -208,6 +212,65 @@ footer {
     /* 選擇性：增加一點文字陰影或背景，防止圖片太花看不清字 */
     text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
 }
+
+/*2*/
+.title-with-btn {
+    display: flex;          /* 開啟彈性佈局 */
+    justify-content: center; /* 水平置中 */
+    align-items: center;     /* 垂直置中，確保字跟按鈕中心線對齊 */
+    gap: 15px;               /* 文字跟按鈕之間的距離 */
+    position: relative;
+}
+.L1{
+    font-family: 'Noto Serif TC', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 !important;   /* 移除原本可能有的上下間距，避免干擾對齊 */
+    display: inline-block;
+}
+/* 讓文字和按鈕排成一橫排，並置中 */
+.color-title-container {
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center;     /* 垂直置中 */
+    gap: 20px;               /* 文字與按鈕的間隔 */
+    margin: 20px 0;
+    position: relative;      /* 方便做更細緻的定位 */
+}
+
+
+/* 規格價錢按鈕樣式 */
+.spec-btn {
+    font-family: 'Noto Serif TC', serif;
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: #e5b367;       /* 深灰色背景，與導覽列呼應 */
+    color: #ffffff;               /* 金色文字 */
+    border: 1px solid #e5b367;    /* 金色邊框 */
+    border-radius: 4px;           /* 微圓角 */
+    text-decoration: none;        /* 移除超連結下劃線 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 增加陰影感 */
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;    /* 動畫效果 */
+    position: absolute;
+    right: 5%; /* 距離右邊 ?% 的位置 */
+}
+
+/* 滑鼠移上去的視覺效果 */
+.spec-btn:hover {
+    background-color: #e18f13; /* 變深的金色 */
+    transform: scale(1.1);    /* 稍微放大一點 */
+}
+#table {
+    /* 這個數值可以根據你的導覽列高度調整，設定 100px-150px 通常能讓表格出現在畫面中間偏上 */
+    scroll-margin-top: 150px; 
+}
+
+/*3*/
 .color-section {
     background-color: #ffffff;
     padding: 60px 20px;
@@ -288,14 +351,6 @@ footer {
     color: #333;
     font-weight: 500;
 }
-.L1{
-    font-family: 'Noto Serif TC', serif;
-    font-size: 30px;
-    font-weight: 900;
-    color: #1a1a1a;
-    letter-spacing: 2px;
-    -webkit-font-smoothing: antialiased;
-}
 
         
 .container {
@@ -304,7 +359,13 @@ footer {
     text-align: center;
 }
 
-
+/*4*/
+.b {
+    width: 100%;
+    max-width: 800px; /* 限制寬度與表格一致 */
+    padding: 40px 20px;
+    margin: 0 auto;
+}
 /* 區塊標題樣式 (特色、適用空間、門鎖) */
 .section-header {
     background-color: var(--header-bg);
@@ -321,17 +382,18 @@ footer {
     line-height: 1.8;
     font-size: 1.1rem;
 }
-.b {
-    width: 100%;
-    max-width: 800px; /* 限制寬度與表格一致 */
-    padding: 40px 20px;
-    margin: 0 auto;
-}
+
+/*5*/
 /* 表格樣式 */
 .table-wrapper {
-    max-height: 300px;    /* 設定你想要顯示的高度，超過這個高度就會出現捲軸 */
-    overflow-y: auto;     /* 垂直方向自動顯示捲軸 */
-    border: 1px solid #ccc; /* 可選：幫外框加個邊框，看起來更像一個盒子 */
+    max-height: 380px;
+    overflow-y: auto;
+    border-radius: 8px; /* 增加圓角 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 增加柔和陰影 */
+    border: 1px solid #d1d1d1;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 900px; /* 限制寬度讓排版更集中 */
 }
 table {
     width: 100%;
@@ -341,12 +403,14 @@ table {
 }
 
 th, td {
+    
     border: 1px solid var(--table-border);
     padding: 12px;
     text-align: left;
 }
 
 th {
+    font-family: 'Noto Serif TC', serif;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -418,4 +482,29 @@ td {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.back-to-top {
+    font-family: 'Noto Serif TC', serif;
+    position: fixed;       /* 關鍵：固定定位，不隨捲軸移動 */
+    bottom: 30px;          /* 距離底部 30px */
+    right: 30px;           /* 距離右側 30px */
+    width: 100px;           /* 寬度 */
+    height: 100px;          /* 高度 */
+    background-color: #e3a74d; /* 使用你的金色 */
+    color: white;          /* 文字顏色 */
+    border: none;          /* 移除邊框 */
+    border-radius: 50%;    /* 圓形按鈕 */
+    cursor: pointer;      /* 滑鼠移上去變手指 */
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 增加陰影感 */
+    z-index: 999;          /* 確保在所有圖層的最上方 */
+    display: none;         /* 預設隱藏 (等滑動後再出現) */
+    transition: background-color 0.3s, transform 0.3s; /* 增加動畫感 */
+}
+
+/* 2. 滑鼠移上去後的變化 */
+.back-to-top:hover {
+    background-color: #e18f13; /* 變深的金色 */
+    transform: scale(1.1);    /* 稍微放大一點 */
 }

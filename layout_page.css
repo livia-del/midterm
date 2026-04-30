@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap');
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --primary-gold: #c5a059;
     --dark-bg: #1a1a1a;
