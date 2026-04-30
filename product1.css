@@ -348,7 +348,7 @@ th, td {
 
 th {
     position: sticky;
-    top: -1px;
+    top: 0;
     z-index: 1;
     background-color: #e8ba65;
     font-weight: bold;
