@@ -1,0 +1,237 @@
+/* 全域設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+body {
+    background-color: black; /* 參考 截圖 2026-04-30 下午2.58.03.png 的藍灰色背景 */
+    color: #fff;
+    line-height: 1.6;
+}
+
+.contact-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 標題設定 */
+.header-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header-title h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.header-title span {
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #b32017;
+    --bg-light: #fdfdfd;
+}
+
+.premium-faq {
+    background-color: var(--bg-light);
+    padding: 80px 20px;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.premium-title {
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+}
+
+.premium-title span {
+    display: block;
+    font-size: 14px;
+    color: var(--accent-color);
+    margin-top: 8px;
+}
+
+/* 徹底隱藏 checkbox，但保留其功能 */
+.faq-toggle {
+    display: none;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eaeaea;
+    background: #fff;
+    margin-bottom: 2px;
+}
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.q-num {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.faq-header h3 {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    color: #444;
+}
+
+/* + 號按鈕設計 */
+.plus-icon {
+    position: relative;
+    width: 14px;
+    height: 14px;
+}
+
+.plus-icon::before, .plus-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #999;
+    transition: all 0.4s ease;
+}
+
+.plus-icon::before { top: 6px; left: 0; width: 14px; height: 1px; } /* 橫線 */
+.plus-icon::after { left: 6px; top: 0; width: 1px; height: 14px; }  /* 直線 */
+
+/* --- 核心邏輯：當 Checkbox 被勾選時 --- */
+
+/* 1. 讓內容展開 (使用 max-height 動畫) */
+.faq-toggle:checked ~ .faq-body {
+    max-height: 500px; /* 給一個足夠大的高度 */
+    opacity: 1;
+}
+
+/* 2. 讓 + 號變 - 號 (讓直線旋轉並消失) */
+.faq-toggle:checked ~ .faq-header .plus-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* 3. 讓標題顏色變深或變色 */
+.faq-toggle:checked ~ .faq-header h3 {
+    color: var(--accent-color);
+}
+
+/* 回答內容區 */
+.faq-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-content {
+    padding: 0 20px 30px 58px;
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* 門市網格佈局 */
+.store-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.store-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 280px;
+    text-align: center;
+    padding: 20px;
+    border-right: 1px dotted rgba(255, 255, 255, 0.3); /* 分隔虛線 */
+}
+
+.store-card:last-child {
+    border-right: none;
+}
+
+.store-card h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* 圓形相框 */
+.circle-frame {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    overflow: hidden;
+    margin: 0 auto 20px;
+}
+
+.circle-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* 底部資訊 */
+.contact-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-info p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.divider {
+    width: 50px;
+    margin: 15px auto;
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.copyright {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* 響應式：平板與手機 */
+@media (max-width: 768px) {
+    .store-card {
+        flex: 0 0 45%;
+        border-right: none;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .store-card {
+        flex: 0 0 100%;
+    }
+}
