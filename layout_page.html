@@ -6,173 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>國堡門精品 - 居家安全與生活品味</title>
     <link rel="stylesheet" href="layout_page.css">
-    <style>
-        /* CSS 樣式 */
-        :root {
-            --primary-gold: #c5a059;
-            --dark-bg: #1a1a1a;
-            --text-gray: #f4f4f4;
-            --accent-black: #000000;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft JhengHei", sans-serif;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        /* 導覽列 */
-        nav {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 2px solid var(--primary-gold);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-gold);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-gold);
-        }
-
-        /* 英雄區 (Banner) */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?auto=format&fit=crop&q=80&w=2000') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            letter-spacing: 5px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
-        }
-
-        .btn-gold {
-            background: var(--primary-gold);
-            color: black;
-            padding: 10px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 2px;
-            transition: 0.3s;
-        }
-
-        /* 產品展示區 */
-        .section {
-            padding: 80px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            margin-bottom: 10px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: #252525;
-            border: 1px solid #333;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-gold);
-        }
-
-        .product-img {
-            width: 100%;
-            height: 350px;
-            background: #444; /* 代替圖 */
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* 門市資訊 */
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .store-item {
-            border-left: 3px solid var(--primary-gold);
-            padding-left: 15px;
-            margin-bottom: 20px;
-        }
-
-        footer {
-            background: #000;
-            padding: 40px 5%;
-            text-align: center;
-            border-top: 1px solid #333;
-            font-size: 0.9rem;
-        }
-    </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">國寶門集團</a>
+        <a href="layout_page.html" class="logo">國寶門集團</a>
         <ul class="nav-links">
             <li><a href="#about">品牌介紹</a></li>
             <li><a href="#products">產品系列</a></li>
@@ -194,11 +32,13 @@
         </div>
         <div class="product-grid">
             <div class="product-card">
-                <div href='product1.html' class="product-img" style="background-image: url('https://via.placeholder.com/400x500/333/c5a059?text=羅浮宮浮雕門'); background-size: cover;"></div>
+                <a href='product1.html' class="product-link">
+                <div class="product-img" style="background-image: url('https://www.hung-chan.com.tw/media/k2/items/cache/f59fd3a46f2adbbd9dd6269010353971_XL.jpg'); background-size: cover;"></div>
                 <div class="product-info">
-                    <h3>羅浮宮浮雕門 c8c8</h3>
+                    <h3>羅浮宮浮雕門</h3>
                     <p>極致工藝的立體表現</p>
                 </div>
+                </a>
             </div>
             <div class="product-card">
                 <div class="product-img" style="background-image: url('https://via.placeholder.com/400x500/333/c5a059?text=防火防爆門'); background-size: cover;"></div>
