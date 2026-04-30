@@ -6,13 +6,17 @@
     font-family: "Microsoft JhengHei", sans-serif;
 }
 
-/* FAQ 區塊白底致中 */
+body {
+    background-color: black;
+}
+
+/* --- 上半部：FAQ (白底致中) --- */
 .faq-section {
-    background-color: #F5F5F5;
+    background-color: white;
     padding: 80px 0;
     width: 100%;
     color: #333;
-    text-align: center; /* 核心致中 */
+    text-align: center; /* 文字全部致中 */
 }
 
 .faq-container {
@@ -20,44 +24,38 @@
     margin: 0 auto;
 }
 
-.faq-main-title {
+.faq-header-main .title-ch {
     font-size: 28px;
-    margin-bottom: 50px;
     letter-spacing: 3px;
 }
 
-.faq-main-title span {
-    display: block;
-    font-size: 14px;
+.faq-header-main .title-en {
     color: #b32017;
-    margin-top: 10px;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
-/* --- Details 標籤優化 --- */
+.faq-list {
+    margin-top: 50px;
+}
 
 .faq-item {
     border-bottom: 1px solid #eee;
     width: 100%;
 }
 
-/* 移除預設的小三角形圖示 */
-summary::-webkit-details-marker {
-    display: none;
-}
+/* 移除 details 預設的三角形 */
+summary::-webkit-details-marker { display: none; }
 
 .faq-question {
-    list-style: none; /* 移除其他瀏覽器的三角形 */
+    list-style: none;
     padding: 30px 0;
-    cursor: pointer; /* 點擊文字感 */
-    font-size: 20px;
+    cursor: pointer;
+    font-size: 18px;
     font-weight: bold;
     outline: none;
-    transition: color 0.3s ease;
-}
-
-.faq-question:hover {
-    color: #b32017;
 }
 
 .q-mark {
@@ -65,44 +63,34 @@ summary::-webkit-details-marker {
     margin-right: 5px;
 }
 
-/* 答案區塊致中 */
 .faq-answer {
     padding-bottom: 30px;
-    line-height: 1.8;
     color: #666;
+    line-height: 2.0; /* 拉寬行距 */
     font-size: 16px;
-    /* 這裡可以加點淡入動畫 */
-    animation: fadeIn 0.5s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- 下半部：店舖資訊 (黑底白字) --- */
-/* 門市區塊：最外層直接設為 100% 寬度，移除 max-width */
+/* --- 下半部：店舖資訊 (黑底滿版橫排) --- */
 .store-section {
     width: 100%;
     margin: 0;
-    padding: 80px 0; /* 上下留白，左右不留 */
-    background-color: black;
+    padding: 100px 0;
+    background-color: #625B57;
     text-align: center;
+    color: white;
 }
 
-/* 門市容器：讓它橫向鋪滿螢幕 */
 .store-container {
     display: flex;
-    justify-content: space-around; /* 讓六間店均勻散佈在整個螢幕 */
+    justify-content: space-around; /* 均勻鋪滿 */
     flex-wrap: nowrap; /* 強制不換行 */
-    align-items: flex-start;
     width: 100%;
-    padding: 0 40px; /* 僅給最左右兩端一點點安全間距 */
+    padding: 0 20px;
+    align-items: flex-start;
 }
 
-/* 單個門市項目 */
 .store-item {
-    flex: 1; /* 讓六個項目平分整個寬度 */
+    flex: 1;
     min-width: 0;
     padding: 0 10px;
     border-right: 1px dotted rgba(255, 255, 255, 0.3);
@@ -112,10 +100,15 @@ summary::-webkit-details-marker {
     border-right: none;
 }
 
-/* 圓形圖片：因為現在空間變大了，我們可以稍微調回 150px */
+.store-item h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
 .store-img {
-    width: 150px; 
-    height: 150px;
+    width: 130px; /* 稍微縮小以騰出空間給文字 */
+    height: 130px;
     margin: 0 auto 20px;
     border-radius: 50%;
     border: 2px solid white;
@@ -128,53 +121,40 @@ summary::-webkit-details-marker {
     object-fit: cover;
 }
 
-/* 門市標題 */
-.store-item h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #fff;
-    white-space: nowrap;
-}
-
-/* 文字資訊 */
 .store-info p {
-    font-size: 13px;
-    line-height: 3.0;
-    color: #fff;
-    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.8; /* 店鋪地址行距拉寬 */
+    color: #ffffff;
+    margin-bottom: 5px;
 }
 
-/* 手機版響應式：螢幕太窄時一定要換行，不然字會疊在一起 */
+/* --- 底部資訊 --- */
+.store-footer {
+    margin-top: 80px;
+    padding: 40px 20px;
+    border-top: 1px solid #222;
+}
+
+.store-footer p {
+    color: #ffffff !important;
+    font-size: 14px;
+    line-height: 2.5; /* 底部文字行距拉寬 */
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* 響應式：手機版一定要換行不然會看不見字 */
 @media (max-width: 1024px) {
     .store-container {
         flex-wrap: wrap;
-        padding: 0 20px;
     }
     .store-item {
-        flex: 0 1 33.33%; /* 平板三排一間 */
-        border-right: none;
+        flex: 0 1 50%;
         margin-bottom: 50px;
+        border-right: none;
     }
-}
-
-
-/* 1. 針對營業時間與客服電話那兩行 */
-.store-footer p {
-    color: #ffffff !important; /* !important 可以確保它不會被其他顏色蓋掉 */
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-/* 2. 針對最下面的 COPYRIGHT 版權宣告 */
-.copyright {
-    color: rgba(255, 255, 255, 0.6) !important; /* 讓版權文字稍微帶點透明灰色，比較高級 */
-    font-size: 12px;
-    margin-top: 15px;
-    letter-spacing: 1px;
-}
-
-/* 3. 如果妳是用 footer 標籤包起來的，也補一下 */
-footer {
-    color: #ffffff;
-    text-align: center;
 }
