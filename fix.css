@@ -1,0 +1,208 @@
+/* 基礎設定 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* 深色背景 */
+    color: #f4f4f4;
+    font-family: "Microsoft JhengHei", sans-serif;
+    line-height: 1.8;
+}
+
+/* 導覽列 */
+nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #c5a059;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #c5a059;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li { margin-left: 20px; }
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: #c5a059; }
+
+/* Banner 區域 (模仿圖 1) */
+.page-header {
+    height: 50vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://www.hung-chan.com.tw/media/k2/items/cache/24d767ce6c156eb07b1fc26c266211f5_XL.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    letter-spacing: 8px;
+    margin-bottom: 5px;
+}
+
+/* 內容容器 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* 大標題樣式 */
+.about-section h1 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 40px 0 20px 0;
+    border-left: 4px solid #c5a059;
+    padding-left: 15px;
+}
+
+/* 養護項目列表 */
+.features-grid {
+    display: flex;
+    flex-direction: column; /* 強制一行一行排列 */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.feature-item h3 {
+    font-size: 1.4rem;
+    color: #c5a059; /* 金色標題 */
+    margin-bottom: 10px;
+}
+
+.gold-line {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #c5a059;
+    margin-bottom: 20px;
+}
+
+.feature-item p {
+    color: #cccccc;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* 頁尾 */
+footer {
+    background: #000;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+
+/* 手機版縮放 */
+@media (max-width: 768px) {
+    .header-content h1 { font-size: 2.5rem; }
+    .about-section h1 { font-size: 1.4rem; }
+}
+
+/* --- 門市資訊專用樣式 (根據 截圖 2026-05-02 凌晨3.19.35.png 修改) --- */
+
+.section-title {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.section-title h2 {
+    font-size: 2.8rem;
+    color: #c5a059; /* 金色 */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #f4f4f4;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* 門市網格：將一行一行改為橫向排列 */
+.store-grid {
+    display: grid;
+    /* 這裡設定成 6 欄，對應圖中的六個門市 */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px;
+    padding: 0 5%;
+    margin-bottom: 80px;
+}
+
+/* 門市項目：增加左側金色垂直線 (截圖 2026-05-02 凌晨3.19.35.png 的核心特徵) */
+.store-item {
+    border-left: 2px solid #c5a059; /* 左邊金色邊框線 */
+    padding-left: 20px;
+    text-align: left;
+}
+
+.store-item h4 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.store-item p {
+    font-size: 0.85rem;
+    color: #f4f4f4;
+    line-height: 1.6;
+    margin: 2px 0;
+}
+
+/* 頁尾資訊對齊 (參考 截圖 2026-05-02 凌晨3.19.28.png) */
+footer {
+    background: #000;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+footer p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+/* 響應式：手機版變回一列，避免寬度不足 */
+@media (max-width: 1024px) {
+    .store-grid {
+        grid-template-columns: repeat(3, 1fr); /* 平板顯示三列 */
+    }
+}
+
+@media (max-width: 768px) {
+    .store-grid {
+        grid-template-columns: 1fr; /* 手機顯示一列 */
+        gap: 30px;
+    }
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
