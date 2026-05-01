@@ -7,7 +7,43 @@
     <link rel="stylesheet" href="about_us.css">
 </head>
 <body>
+    <nav>
+        <a href="home.html" class="logo" target="_top">國堡門集團</a>
+        <ul class="nav-links">
+            <li><a href="about_us.html" target="_top">品牌介紹</a></li>
+            <li class="dropdown">
+                <a href="#">產品系列 <span class="arrow">▼</span></a>
+                <ul class="dropdown-content">
+                    <!-- 第一排 -->
+                    <li><a href="product1.html" target="_top">雙玄關門A系列</a></li>
+                    <li><a href="product2.html" target="_top">雙玄關門D系列</a></li>
+                    <li><a href="product3.html" target="_top">鋼製壓板門系列</a></li>
+                    <li><a href="product4.html" target="_top">日式玄關門系列</a></li>
 
+                    <!-- 第二排 -->
+                    <li><a href="product5.html" target="_top">雙玄關系列</a></li>
+                    <li><a href="product6.html" target="_top">雙玄關雙視窗</a></li>
+                    <li><a href="product7.html" target="_top">烤漆精雕門系列</a></li>
+                    <li><a href="product8.html" target="_top">門中門系列</a></li>
+
+                    <!-- 第三排 -->
+                    <li><a href="product9.html" target="_top">防水防污門系列</a></li>
+                    <li><a href="product10.html" target="_top">羅浮宮浮雕門</a></li>
+                    <li><a href="product11.html" target="_top">科技實木門系列</a></li>
+                    <li><a href="product12.html" target="_top">天然實木門系列</a></li>
+                    <!-- 第四排 -->
+                    <li><a href="product13.html" target="_top">百頁通風門系列</a></li>
+                    <li><a href="product14.html" target="_top">石材玄關門系列</a></li>
+                    <li><a href="product15.html" target="_top">碳纖防爆門系列</a></li>
+                    <li><a href="product16.html" target="_top">雙茂門系列</a></li>
+                </ul>
+            </li>
+            <li><a href="lock1.html" target="_top">門鎖系列</a></li>
+            <li><a href="#products" target="_top">展品出清</a></li>
+            <li><a href="#footer-frame" target="_top">門市資訊</a></li>
+            <li><a href="QA.html" target="_top">QA</a></li>
+        </ul>
+    </nav>
     <header class="page-header">
         <div class="header-content">
             <h1 style="color: #F0DFCC;">ABOUT US</h1>
@@ -91,10 +127,17 @@
             </div>
         </div>
     </section>
-    <footer>
-        <p>免付費客服電話：0800-368-369 | 營業時間: 周一到周六 9:30-20:00</p>
-        <p>COPYRIGHT © 2026 GUOBAO DOOR™ INC. ALL RIGHTS RESERVED.</p>
-    </footer>
+    <iframe 
+        src="bottom.html" 
+        id="footer-frame" 
+        scrolling="no" 
+        style="width: 100%; border: none; display: block;">
+    </iframe>
+
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        回到頂部
+    </button>
+    <script src="product1.js"></script>
 
 
 </body>

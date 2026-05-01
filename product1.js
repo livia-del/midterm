@@ -1,3 +1,4 @@
+//頂部按鈕功能
 // 1. 監聽網頁捲動事件
 window.onscroll = function() {
     scrollFunction();
@@ -20,6 +21,19 @@ function scrollToTop() {
         behavior: 'smooth' // 關鍵：平滑滾動效果
     });
 }
+
+
+
+// 讓 iframe 載入後自動調整高度（避免內容被切掉）
+window.onload = function() {
+    const frame = document.getElementById('footer-frame');
+    // 這裡設定一個預估的高度，或者用 JS 動態抓取
+    // 根據你的圖片內容（6間店），高度建議設定在 500px - 600px 之間
+    frame.style.height = '750px'; 
+};
+
+
+//換大圖跟文字
 function changeHero(imgUrl, colorName) {
     // 抓取大圖並更換背景
     const hero = document.getElementById('main-hero');
@@ -33,10 +47,29 @@ function changeHero(imgUrl, colorName) {
         label.innerText = colorName;
     }
 }
-// 讓 iframe 載入後自動調整高度（避免內容被切掉）
-window.onload = function() {
-    const frame = document.getElementById('footer-frame');
-    // 這裡設定一個預估的高度，或者用 JS 動態抓取
-    // 根據你的圖片內容（6間店），高度建議設定在 500px - 600px 之間
-    frame.style.height = '600px'; 
-};
+
+//展品出清
+function openModal(src) {
+    // 顯示燈箱並帶入圖片路徑
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("fullImage");
+
+    modal.style.display = "flex";
+    modalImg.src = src;
+
+    // 禁止底層頁面滾動（選配，體驗更好）
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    // 隱藏燈箱
+    document.getElementById("imageModal").style.display = "none";
+
+    // 恢復底層頁面滾動
+    document.body.style.overflow = "auto";
+}
+
+// 按下鍵盤 Esc 鍵也能關閉
+document.addEventListener('keydown', function (e) {
+    if (e.key === "Escape") closeModal();
+});
