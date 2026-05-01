@@ -33,3 +33,10 @@ function changeHero(imgUrl, colorName) {
         label.innerText = colorName;
     }
 }
+// 讓 iframe 載入後自動調整高度（避免內容被切掉）
+window.onload = function() {
+    const frame = document.getElementById('footer-frame');
+    // 這裡設定一個預估的高度，或者用 JS 動態抓取
+    // 根據你的圖片內容（6間店），高度建議設定在 500px - 600px 之間
+    frame.style.height = '600px'; 
+};
