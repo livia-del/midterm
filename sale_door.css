@@ -353,3 +353,30 @@ footer {
         font-size: 40px;
     }
 }
+
+
+/* 1. 強制讓已售出區塊排成四個一行 */
+#sold-out-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px;
+}
+
+/* 2. 讓點不開的圖片滑鼠指標不要變成手指 */
+#sold-out-section .product-img {
+    cursor: default !important;
+    filter: grayscale(30%); /* 稍微變灰，區分已售出 */
+}
+
+/* 3. 讓售出的卡片看起來稍微變暗 (如您截圖所示) */
+#sold-out-section .product-card {
+    opacity: 0.7;
+    pointer-events: none; /* 這是關鍵！加上這行，整個卡片都無法觸發點擊事件 */
+}
+
+/* 針對手機版還是建議改回 1 或 2 列，不然會太擠 */
+@media (max-width: 768px) {
+    #sold-out-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
