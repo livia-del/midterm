@@ -1,49 +1,38 @@
-/* 頁面標題 Banner */
+/* 繼承你原本的字體設定 */
+body {
+    margin: 0;
+    font-family: inherit; /* 沿用原本設定的字體 */
+}
+
+/* Banner 區域 */
 .page-header {
     height: 40vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1500');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.hung-chan.com.tw/media/k2/items/cache/24d767ce6c156eb07b1fc26c266211f5_XL.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding-top: 80px; /* 避開固定導覽列 */
 }
 
-.header-content h1 {
-    font-size: 3rem;
-    color: #c5a059;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-}
-
-/* 內容區容器 */
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 80px 20px;
 }
 
-.about-item {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    margin-bottom: 100px;
+/* 核心修改：達成左右排列 */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 分成左右兩等份 */
+    gap: 40px 60px; /* 上下與左右的間距 */
+    margin-bottom: 80px;
 }
 
-.about-item.reverse {
-    flex-direction: row-reverse;
-}
-
-.about-text {
-    flex: 1;
-}
-
-.about-text h3 {
+.feature-item h3 {
     font-size: 2rem;
-    margin-bottom: 15px;
-    color: #fff;
+    color: gray;
+    margin-bottom: 10px;
 }
 
 .gold-line {
@@ -54,59 +43,75 @@
     margin-bottom: 25px;
 }
 
-.about-text p {
+.feature-item p {
     line-height: 1.8;
-    color: #ccc;
-    margin-bottom: 15px;
+    color: #666;
     text-align: justify;
 }
 
-.about-image {
-    flex: 1;
-}
-
+/* 圖片陰影效果 */
 .about-image img {
     width: 100%;
     border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    filter: grayscale(30%); /* 增加沉穩感 */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* 這裡加入了顯著的陰影 */
+    transition: transform 0.3s ease;
 }
 
-/* 數據展示區 */
-.stats-section {
-    background-color: #111;
+/* 底部區塊佈局 */
+.about-item {
     display: flex;
-    justify-content: space-around;
-    padding: 60px 8%;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+/* 手機版適應：變回一列垂直排列 */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-item {
+        flex-direction: column;
+    }
+}
+
+/* 頁面標題 Banner */
+.page-header {
+    height: 40vh; /* 根據需求調整高度 */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://www.hung-chan.com.tw/media/k2/items/cache/24d767ce6c156eb07b1fc26c266211f5_XL.jpg');
+    background-size: cover;
+    background-position: center;
+    
+    /* 核心置中設定 */
+    display: flex;
+    flex-direction: column;   /* 讓內容垂直排列 */
+    justify-content: center;  /* 垂直置中 */
+    align-items: center;      /* 水平置中 */
     text-align: center;
-    border-top: 1px solid #333;
 }
 
-.stat-box h4 {
-    font-size: 2.5rem;
-    color: #c5a059;
-    margin-bottom: 5px;
+.header-content {
+    /* 確保容器寬度足夠，避免被擠壓 */
+    width: 100%;
 }
 
-.stat-box p {
-    color: #888;
+.header-content h1 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    margin: 0 0 10px 0; /* 移除預設外距並設定下方間距 */
+}
+
+.header-content p {
+    font-size: 1.2rem;
+    margin: 0;
     letter-spacing: 2px;
 }
 
-/* 導覽列 Active 狀態 */
-.nav-links a.active {
-    color: #c5a059;
-    font-weight: bold;
-}
-
-/* 手機版適應 */
-@media (max-width: 768px) {
-    .about-item, .about-item.reverse {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .stats-section {
-        flex-direction: column;
-        gap: 40px;
-    }
+footer {
+    background: gray;
+    padding: 40px 10%;
+    text-align: center;
+    border-top: 1px solid gray;
+    font-size: 0.9rem;
 }

@@ -1,0 +1,113 @@
+:root {
+    --main-bg: #fdfdfd;
+    --dark-blue: #1a2a3a;
+    --accent-red: #b31d28;
+    --text-gray: #666;
+    --light-gray: #eeeeee;
+}
+
+/* 隱藏 Radio 本體 */
+input[type="radio"] {
+    display: none;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--main-bg); }
+
+/* 佈局結構 */
+.header-banner {
+    background: #1a2a3a;
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.main-layout {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+}
+
+/* 側邊菜單樣式 */
+.side-menu h3 {
+    border-left: 5px solid var(--accent-red);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.side-menu ul { list-style: none; }
+
+.side-menu label {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--light-gray);
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: 0.3s;
+}
+
+.side-menu label span {
+    font-family: 'Oswald', sans-serif;
+    margin-right: 10px;
+    opacity: 0.5;
+}
+
+/* 核心切換邏輯：選中時的選單樣式 */
+#cat-1:checked ~ .main-layout .side-menu label[for="cat-1"],
+#cat-2:checked ~ .main-layout .side-menu label[for="cat-2"],
+#cat-3:checked ~ .main-layout .side-menu label[for="cat-3"] {
+    color: var(--accent-red);
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+/* 核心切換邏輯：產品群組顯示/隱藏 */
+.product-group {
+    display: none; /* 預設全部隱藏 */
+    animation: fadeIn 0.5s ease;
+}
+
+#cat-1:checked ~ .main-layout .gallery .group-1,
+#cat-2:checked ~ .main-layout .gallery .group-2,
+#cat-3:checked ~ .main-layout .gallery .group-3 {
+    display: block; /* 選中哪個 Radio 就顯示哪個群組 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 產品卡片網格 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #eee;
+    padding: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-body {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.tag { color: var(--accent-red); font-size: 0.8rem; }
+.card-body h2 { font-size: 1.1rem; margin: 10px 0; }
