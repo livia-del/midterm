@@ -1,3 +1,32 @@
+/* 1. 確保圖片容器是相對定位，作為文字的參考框 */
+.h {
+    height: 80vh;
+    background: url('https://www.hung-chan.com.tw/media/k2/items/cache/f59fd3a46f2adbbd9dd6269010353971_XL.jpg') center/cover;
+    display: flex;
+    justify-content: center;
+    position: relative; /* 關鍵：讓內層的絕對定位生效 */
+    width: 100%;
+}
+
+/* 2. 設定文字絕對定位於容器底部 */
+.L {
+    position: absolute;  /* 關鍵：脫離正常流，自由定位 */
+    bottom: 50px;        /* 距離圖片底部 50px，可自行調整數值 */
+    left: 50%;           /* 配合下面 transform 達成水平置中 */
+    transform: translateX(-50%); 
+    
+    font-family: 'Noto Serif TC', serif;
+    font-size: 60px;
+    font-weight: 900;
+    color: #1a1a1a;      /* 黑色字體 */
+    letter-spacing: 5px;
+    white-space: nowrap; /* 確保文字不換行 */
+    
+    /* 選擇性：增加一點文字陰影或背景，防止圖片太花看不清字 */
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.5); 
+}
+
+
 .table-wrapper {
     max-height: 380px;
     overflow-y: auto;
