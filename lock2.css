@@ -1,9 +1,9 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&display=swap');
+
 :root {
     --primary-gold: #c5a059;
     --dark-bg: #1a1a1a;
-    --text-gray: #f4f4f4;
+    --text-white: #f4f4f4;
     --accent-black: #000000;
 }
 
@@ -11,18 +11,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Microsoft JhengHei", sans-serif;
+    font-family: "Microsoft JhengHei", "Noto Serif TC", serif;
 }
 
 body {
     background-color: var(--dark-bg);
-    color: var(--text-gray);
+    color: var(--text-white);
     line-height: 1.6;
 }
 
-
 nav {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
@@ -31,7 +30,6 @@ nav {
     width: 100%;
     z-index: 1000;
     border-bottom: 2px solid var(--primary-gold);
-    font-family: 'Noto Serif TC', serif;
 }
 
 .logo {
@@ -39,135 +37,122 @@ nav {
     font-weight: bold;
     color: var(--primary-gold);
     text-decoration: none;
-    font-family: 'Noto Serif TC', serif;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    font-family: 'Noto Serif TC', serif;
 }
 
-.nav-links li {
-    margin-left: 20px;
-    font-family: 'Noto Serif TC', serif;
-}
+.nav-links li { margin-left: 25px; }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     transition: 0.3s;
-    font-family: 'Noto Serif TC', serif;
 }
 
-.nav-links a:hover {
-    color: var(--primary-gold);
-    font-family: 'Noto Serif TC', serif;
-}
-
+.nav-links a:hover { color: var(--primary-gold); }
 
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.hung-chan.com.tw/media/k2/categories/127.jpg') center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 80px;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://www.hung-chan.com.tw/media/k2/categories/127.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    letter-spacing: 5px;
-    font-family: 'Noto Serif TC', serif;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin-bottom: 2rem;
-}
+.hero h1 { font-size: 3rem; color: var(--primary-gold); margin-bottom: 1rem; }
 
 .btn-gold {
     background: var(--primary-gold);
     color: black;
-    padding: 10px 30px;
+    padding: 12px 35px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 2px;
-    transition: 0.3s;
+    margin-top: 20px;
 }
 
-.section {
+.section { padding: 80px 5%; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 2.2rem; color: var(--primary-gold); margin-bottom: 10px; }
 
-    padding: 80px 5%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
-    font-size: 2.5rem;
-    color: var(--primary-gold);
-    margin-bottom: 10px;
-}
-
+/* 產品網格 */
 .product-grid {
     display: grid;
-    /* 修改：將 minmax 的最小值調小，例如 250px，讓一列可以排更多個，單個就會縮小 */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    max-width: 1200px; /* 限制整體最大寬度 */
-    margin: 0 auto;    /* 置中 */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .product-card {
     background: #252525;
     border: 1px solid #333;
-    overflow: hidden;
-    transition: 0.3s;
-    /* 新增：讓門鎖與黑框之間有呼吸空間 */
-    padding: 15px; 
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-gold);
+    padding: 20px;
+    text-align: center;
+    pointer-events: none; 
+    cursor: default;
 }
 
 .product-img {
     width: 100%;
-    /* 修改：不要給死高度，改用比例控制（門鎖建議 1:1 或 4:3） */
-    aspect-ratio: 1 / 1; 
-    
-    /* 修改：改為 contain 確保整支鎖都能看見，不因填滿而放大 */
-    background-size: contain; 
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
-    /* 建議：門鎖圖片若有白底，背景設為白色較美觀 */
-    background-color: #ffffff; 
+    margin-bottom: 15px;
 }
 
-.product-info {
-    padding: 20px;
-    text-align: center;
-}
+/* 門市資訊：關鍵修正點 */
+.dark-bg-section { background-color: #111; }
 
 .store-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    /* 強制設定為 6 欄以排在同一列 */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .store-item {
     border-left: 3px solid var(--primary-gold);
-    padding-left: 15px;
-    margin-bottom: 20px;
+    padding-left: 12px;
+    background: rgba(255, 255, 255, 0.03); /* 輕微背景色區分 */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.store-item h4 {
+    color: var(--primary-gold);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    white-space: nowrap; /* 避免標題斷行 */
+}
+
+.store-item p {
+    font-size: 0.8rem; /* 稍微縮小字體以符合橫向空間 */
+    color: #bbb;
+    line-height: 1.4;
+}
+
+/* 手機版自動回歸垂直排列 */
+@media (max-width: 1024px) {
+    .store-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .store-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 footer {
@@ -175,18 +160,4 @@ footer {
     padding: 40px 5%;
     text-align: center;
     border-top: 1px solid #333;
-    font-size: 0.9rem;
-}
-
-.product-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.product-link:hover {
-    opacity: 0.9;
-    cursor: pointer;
 }
