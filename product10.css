@@ -387,7 +387,11 @@ nav ul li {
     max-width: 800px;
     text-align: center;
 }
-
+.color-item.active .circle {
+    border: 4px solid #333; /* 加上明顯的邊框 */
+    box-shadow: 0 0 15px rgba(0,0,0,0.5); /* 加強陰影 */
+    transform: scale(1.1); /* 稍微放大一點點 */
+}
 /*表格*/
 
 .b {
