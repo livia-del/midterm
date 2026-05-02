@@ -34,7 +34,7 @@ window.onload = function() {
 
 
 //換大圖跟文字
-function changeHero(imgUrl, colorName) {
+function changeHero(imgUrl, colorName, description) {
     // 抓取大圖並更換背景
     const hero = document.getElementById('main-hero');
     if (hero) {
@@ -45,6 +45,12 @@ function changeHero(imgUrl, colorName) {
     const label = document.getElementById('color-label');
     if (label) {
         label.innerText = colorName;
+    }
+
+    // 抓取描述文字並更換文字
+    const desc = document.getElementById('description');
+    if (desc) {
+        desc.innerHTML = description;
     }
 }
 

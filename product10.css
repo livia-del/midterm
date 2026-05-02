@@ -208,6 +208,21 @@ nav ul li {
     text-shadow: 4px 4px 6px rgba(255,255,255,0.5);
 }
 
+.L2{
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 !important;   /* 移除原本可能有的上下間距，避免干擾對齊 */
+    display: inline-block;
+    position: absolute;  /* 關鍵：脫離正常流，自由定位 */
+    top: 260px;        /* 距離圖片底部 50px，可自行調整數值 */
+    left: 120px;  
+    /* 選擇性：增加一點文字陰影或背景，防止圖片太花看不清字 */
+    text-shadow: 4px 4px 6px rgba(255,255,255,0.5);
+}
 
 /* 規格價錢按鈕 */
 .spec-btn {
@@ -256,10 +271,13 @@ nav ul li {
 
 /* 每個色塊單元垂直排列 */
 .color-item {
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 40px;
+    position: relative; /* 關鍵：讓文字相對於這顆圓圈定位 */
+    cursor: pointer;
+    
+    display: inline-block; /* 或是 flex，確保容器寬度正確 */
 }
 
 /* 製作圓形 */
@@ -275,9 +293,69 @@ nav ul li {
     background-position: center; /* 圖片置中 */
     background-repeat: no-repeat;
 }
-.circle:hover {
-    transform: scale(1.1);    /* 稍微放大一點 */
+
+/* 文字彈出盒子的樣式 */
+.info-box {
+    position: absolute;
+    bottom: 110%; /* 出現在圓圈上方 */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* 水平置中，稍微往下偏一點點做位移動畫 */
+    width: max-content;       /* 讓寬度自動延伸到內容的最大寬度 */
+    white-space: nowrap;      /* 強制文字不換行 */
+    min-width: 200px;         /* 也可以設個最小寬度，防止字太少時太窄 */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: left; /* 文字靠左比較好讀 */
+    z-index: 10;
+    
+    /* 預設隱藏 */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease; /* 讓彈出有滑順感 */
+    pointer-events: none; /* 防止滑鼠誤觸文字框導致閃爍 */
 }
+
+/* 當滑鼠移入 color-item 時，顯示文字並放大圓圈 */
+.color-item:hover .info-box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* 移回原位 */
+}
+
+/* 圓圈原本的 hover 放大效果改寫在這裡會更順 */
+.color-item:hover .circle {
+    transform: scale(1.1);
+}
+
+/* 調整文字細節樣式 */
+.info-box h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.info-box p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.info-box .note {
+    border-top: 1px solid #eee;
+    padding-top: 5px;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #999;
+}
+/* 稍微放大一點 */
+/*
+.circle:hover {
+    transform: scale(1.1);    
+}
+*/
 
 
 /* 設定各別圓形的背景圖或顏色 */
