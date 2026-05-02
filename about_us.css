@@ -156,6 +156,38 @@ nav ul li {
     justify-content: center;
     align-items: center;
 }
+/* 初始隱藏狀態 */
+.feature-item {
+    opacity: 0;
+    transition: all 0.8s ease-out; /* 動畫持續 0.8 秒 */
+}
+
+/* 左側初始位置（往左偏移） */
+.slide-in-left {
+    transform: translateX(-100px);
+}
+
+/* 右側初始位置（往右偏移） */
+.slide-in-right {
+    transform: translateX(100px);
+}
+
+/* 觸發動畫後的狀態 */
+.feature-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 讓第二排慢一點點 */
+.feature-item:nth-child(3), .feature-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+/* 讓第三排再慢一點點 */
+.feature-item:nth-child(5), .feature-item:nth-child(6) {
+    transition-delay: 0.4s;
+}
+
 
 .container {
     max-width: 1100px;

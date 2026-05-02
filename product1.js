@@ -73,3 +73,17 @@ function closeModal() {
 document.addEventListener('keydown', function (e) {
     if (e.key === "Escape") closeModal();
 });
+
+//about us 進場動畫
+const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.2 }); // 看到 20% 的區塊就觸發
+
+    // 監控所有 feature-item
+    document.querySelectorAll('.feature-item').forEach(item => {
+        observer.observe(item);
+    });
