@@ -52,6 +52,17 @@ function changeHero(imgUrl, colorName, description) {
     if (desc) {
         desc.innerHTML = description;
     }
+    // 2. 自動處理「選中狀態」(不必改 HTML)
+    // 移除所有 color-item 的 active 狀態
+    const allItems = document.querySelectorAll('.color-item');
+    allItems.forEach(item => item.classList.remove('active'));
+
+    // 關鍵：利用 window.event 抓到目前正在點擊的那個元素
+    // 我們要抓的是 color-item，所以用 closest 向上尋找
+    const clickedElement = event.currentTarget || event.target.closest('.color-item');
+    if (clickedElement) {
+        clickedElement.classList.add('active');
+    }
 }
 
 //展品出清
